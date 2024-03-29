@@ -8,3 +8,4 @@ services:
       - ".env"
     ports:
       - "53336:53336"
+    network_mode: "host"
