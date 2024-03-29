@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "eth-health-checker"
+version = "0.1.0"
+description = "Ethereum /health endpoint script"
+authors = ["Dylan Schultz <9121234+dylanschultzie@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.2"
+python-dotenv = "^1.0.1"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 120
