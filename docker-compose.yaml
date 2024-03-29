@@ -1,7 +1,7 @@
 version: '3'
 services:
-  app:
-    image: lavender5/ethereum_health_checker:latest
+  ethereum_health_checker:
+    image: lavender5/ethereum_health_checker:master
     container_name: eth_health
     restart: unless-stopped
     env_file:
