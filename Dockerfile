@@ -3,6 +3,10 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+ENV POETRY_VERSION=1.7.0 \
+    POETRY_VIRTUALENVS_CREATE=false \
+    POETRY_HOME="/opt/poetry"
+
 RUN pip install "poetry==$POETRY_VERSION" && poetry --version
 
 COPY pyproject.toml poetry.lock /app/
