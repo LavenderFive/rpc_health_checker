@@ -1,8 +1,8 @@
 version: '3'
 services:
   ethereum_health_checker:
-    image: lavender5/ethereum_health_checker:master
-    container_name: eth_health
+    image: lavender5/rpc_health_checker:master
+    container_name: health
     restart: unless-stopped
     env_file:
       - ".env"
