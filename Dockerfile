@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 53336
 
 # Command to run the Flask application
-CMD ["python", "main.py"]
+CMD ["python", "run.py"]
