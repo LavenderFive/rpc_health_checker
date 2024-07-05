@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime, timedelta, timezone
 
+
 def cosmos_health(ip: str, port: str, acceptable_time_delta: int = 60) -> tuple:
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
 
@@ -18,7 +19,7 @@ def cosmos_health(ip: str, port: str, acceptable_time_delta: int = 60) -> tuple:
 
     current_dt = datetime.now(timezone.utc)
     latest_block_time = latest_block_data["result"]["sync_info"]["latest_block_time"]
-    truncated_time_str = latest_block_time[:-4] + 'Z'
+    truncated_time_str = latest_block_time[:-4] + "Z"
     latest_block_dt = datetime.strptime(truncated_time_str, "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=timezone.utc)
     block_time_delta = current_dt - latest_block_dt
 

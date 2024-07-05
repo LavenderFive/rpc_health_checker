@@ -1,9 +1,10 @@
 from datetime import datetime, timedelta, timezone
 import requests
 
+
 def ethereum_health(ip: str, port: str, acceptable_time_delta: int = 60):
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
-    
+
     # Get latest block data
     payload = {
         "jsonrpc": "2.0",
