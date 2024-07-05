@@ -6,12 +6,7 @@ def ethereum_health(ip: str, port: str, acceptable_time_delta: int = 60):
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
 
     # Get latest block data
-    payload = {
-        "jsonrpc": "2.0",
-        "method": "eth_getBlockByNumber",
-        "params": ["latest", False],
-        "id": 1
-    }
+    payload = {"jsonrpc": "2.0", "method": "eth_getBlockByNumber", "params": ["latest", False], "id": 1}
     headers = {"Content-Type": "application/json"}
     url = f"http://{ip}:{port}"
     response = requests.post(url, headers=headers, json=payload)
