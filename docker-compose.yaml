@@ -4,8 +4,6 @@ services:
     image: lavender5/rpc_health_checker:master
     container_name: health
     restart: unless-stopped
-    env_file:
-      - ".env"
     ports:
       - "53336:53336"
     network_mode: "host"

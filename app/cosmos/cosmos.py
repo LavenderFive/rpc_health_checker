@@ -2,10 +2,10 @@ import requests
 from datetime import datetime, timedelta, timezone
 
 
-def cosmos_health(ip: str, port: str, acceptable_time_delta: int = 60) -> tuple:
+def cosmos_health(host: str, acceptable_time_delta: int = 60) -> tuple:
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
 
-    url = f"http://{ip}:{port}/status"
+    url = f"http://{host}/status"
     response = requests.post(url)
 
     if response.status_code != 200:
