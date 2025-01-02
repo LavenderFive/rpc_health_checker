@@ -1,9 +1,8 @@
 version: '3'
 services:
-  ethereum_health_checker:
-    image: lavender5/rpc_health_checker:master
+  rpc_health_checker:
+    build: .
     container_name: health
     restart: unless-stopped
     ports:
       - "53336:53336"
-    network_mode: "host"

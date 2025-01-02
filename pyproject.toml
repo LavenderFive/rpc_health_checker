@@ -1,24 +1,16 @@
-[tool.poetry]
-name = "eth-health-checker"
+[project]
+name = "rpc-health-checker"
 version = "0.1.0"
-description = "Ethereum /health endpoint script"
-authors = ["Dylan Schultz <9121234+dylanschultzie@users.noreply.github.com>"]
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-flask = "^3.0.2"
-python-dotenv = "^1.0.1"
-requests = "^2.31.0"
-
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.3.4"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.0.2",
+    "logging>=0.4.9.6",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "ruff>=0.8.5",
+]
 
 [tool.ruff]
 line-length = 120
