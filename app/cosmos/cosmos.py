@@ -1,6 +1,9 @@
 import requests
+import logging
+
 from datetime import datetime, timedelta, timezone
 
+logger = logging.getLogger(__name__)
 
 def modify_host(host_rpc):
     host, port = host_rpc.split(":")
@@ -10,9 +13,10 @@ def modify_host(host_rpc):
 
 def cosmos_health(host: str, acceptable_time_delta: int = 10) -> tuple:
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
-
+    logger.info(f"{host} | pre modification")
     if not host.endswith("57"):
         host = modify_host(host)
+    logger.info(f"{host} | post modification")
 
     url = f"http://{host}/status"
     response = requests.post(url)
@@ -21,6 +25,8 @@ def cosmos_health(host: str, acceptable_time_delta: int = 10) -> tuple:
         return "Error occurred while fetching latest block data", 500
 
     latest_block_data = response.json()
+
+    logger.info(f"{host} | {latest_block_data}")
 
     # Check sync status
     if "result" not in latest_block_data:
