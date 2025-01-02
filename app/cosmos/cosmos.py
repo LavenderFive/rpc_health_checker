@@ -2,8 +2,17 @@ import requests
 from datetime import datetime, timedelta, timezone
 
 
-def cosmos_health(host: str, acceptable_time_delta: int = 60) -> tuple:
+def modify_host(host_rpc):
+    host, port = host_rpc.split(":")
+    new_port = port[:-2] + "57"
+    return f"{host}:{new_port}"
+
+
+def cosmos_health(host: str, acceptable_time_delta: int = 10) -> tuple:
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
+
+    if not host.endswith("57"):
+        host = modify_host(host)
 
     url = f"http://{host}/status"
     response = requests.post(url)

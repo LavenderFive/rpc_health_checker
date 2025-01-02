@@ -31,5 +31,7 @@ COPY . .
 # Expose the port on which your Flask app will run
 EXPOSE 53336
 
+ENTRYPOINT [ "uv" ]
+
 # Command to run the Flask application
-CMD ["python", "run.py"]
+CMD [ "run", "run.py"]
