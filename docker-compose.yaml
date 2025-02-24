@@ -5,3 +5,8 @@ services:
     restart: unless-stopped
     ports:
       - "53336:53336"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

@@ -20,4 +20,5 @@ def health_check():
     else:
         message, status = "Unknown RPC type", 400
 
+    logger.info(f"{host} | {message} | {status}")
     return message, status

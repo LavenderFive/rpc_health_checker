@@ -1,6 +1,15 @@
 import logging
+import sys
 from flask import Flask
 from app.routes import api  # Import the Blueprint
+
+sys.stdout.reconfigure(line_buffering=True)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 app = Flask(__name__)
 app.register_blueprint(api)  # Register the Blueprint
