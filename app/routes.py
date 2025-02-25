@@ -13,12 +13,12 @@ def health_check():
     rpc_type = host[-2:]
     health_check_function = switch.get(rpc_type)
 
-    logger.info(f"{host} | {health_check_function}")
+    logger.debug(f"{host} | {health_check_function}")
 
     if health_check_function:
         message, status = health_check_function(host)
     else:
         message, status = "Unknown RPC type", 400
 
-    logger.info(f"{host} | {message} | {status}")
+    logger.debug(f"{host} | {message} | {status}")
     return message, status
