@@ -23,6 +23,7 @@ def health_check():
     logger.debug(f"{host} | {message} | {status}")
     return message, status
 
+
 @api.route("/healthz", methods=["GET"])
 def healthz_check():
     return "OK", 200

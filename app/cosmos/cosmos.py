@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 
 logger = logging.getLogger(__name__)
 
+
 def modify_host(host_rpc):
     host, port = host_rpc.split(":")
     new_port = port[:-2] + "57"
