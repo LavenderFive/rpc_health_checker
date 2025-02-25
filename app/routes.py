@@ -15,10 +15,14 @@ def health_check():
 
     logger.debug(f"{host} | {health_check_function}")
 
-    if health_check_function:
-        message, status = health_check_function(host)
-    else:
-        message, status = "Unknown RPC type", 400
+    try:
+        if health_check_function:
+            message, status = health_check_function(host)
+        else:
+            message, status = "Unknown RPC type", 400
+    except Exception as e:
+        logger.error(f"{host} | {e}")
+        message, status = "Error occurred while fetching health data", 500
 
     logger.debug(f"{host} | {message} | {status}")
     return message, status

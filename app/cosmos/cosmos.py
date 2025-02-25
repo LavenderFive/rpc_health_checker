@@ -19,10 +19,14 @@ def cosmos_health(host: str, acceptable_time_delta: int = 10) -> tuple:
         host = modify_host(host)
 
     url = f"http://{host}/status"
-    response = requests.post(url)
+    try:
+        response = requests.post(url)
+    except ConnectionError as e:
+        logger.error(f"{host} | {e}")
+        return "Node is down", 502
 
     if response.status_code != 200:
-        return "Error occurred while fetching latest block data", 500
+        return "Error occurred while fetching latest block data", 502
 
     latest_block_data = response.json()
 
