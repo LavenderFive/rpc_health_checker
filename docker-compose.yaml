@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     ports:
       - "53336:53336"
+    network_mode: host
     logging:
       driver: "json-file"
       options:
