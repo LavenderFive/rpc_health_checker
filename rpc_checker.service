@@ -1,0 +1,13 @@
+[Unit]
+Description=RPC Health Checker
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+WorkingDirectory=/home/deploy/rpc_health_checker
+ExecStart=/home/deploy/.local/bin/uv run -- run.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
