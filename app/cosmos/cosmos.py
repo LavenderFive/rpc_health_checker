@@ -15,6 +15,8 @@ def modify_host(host_rpc):
 def cosmos_health(host: str, acceptable_time_delta: int = 10) -> tuple:
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
 
+    # rpc is used because /node_info endpoint isn't always available. In addition,
+    # after extensive tests, /status and /node_info are roughly the same speed.
     if not host.endswith("57"):
         host = modify_host(host)
 
