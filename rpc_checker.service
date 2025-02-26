@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User={USERNAME}
 WorkingDirectory=/home/{USERNAME}/rpc_health_checker
-ExecStart=/home/{USERNAME}/.local/bin/uv run -- run.py
+ExecStart=/home/{USERNAME}/.local/bin/uv run -- run.py --log-level=INFO
 Restart=always
 
 [Install]

@@ -2,7 +2,9 @@ services:
   rpc_health_checker:
     build: .
     container_name: health
-    restart: unless-stopped
+    restart: always
+    command:
+      - '--log-level INFO'
     ports:
       - "53336:53336"
     network_mode: host
