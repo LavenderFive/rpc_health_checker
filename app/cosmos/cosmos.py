@@ -12,7 +12,7 @@ def modify_host(host_rpc):
     return f"{host}:{new_port}"
 
 
-def cosmos_health(host: str, acceptable_time_delta: int = 13) -> tuple:
+def cosmos_health(host: str, acceptable_time_delta: int = 20) -> tuple:
     acceptable_time_delta = timedelta(seconds=acceptable_time_delta)
 
     # rpc is used because /node_info endpoint isn't always available. In addition,
