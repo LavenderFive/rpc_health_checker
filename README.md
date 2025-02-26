@@ -34,7 +34,7 @@ To develop and test the application locally:
 pip install uv
 ```
 
-3. Run the application:
+2. Run the application:
 ```sh
 uv run run.py
 ```
